@@ -1,0 +1,6 @@
+node_modules
+dist
+.wrangler
+.mockup-upload
+.vite-*.log
+mockup-check*.png

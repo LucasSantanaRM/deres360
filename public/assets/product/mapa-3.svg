@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1350" viewBox="0 0 900 1350">
+<defs>
+  <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#000000" flood-opacity=".32"/>
+  </filter>
+  <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+    <stop stop-color="#08243b"/>
+    <stop offset="1" stop-color="#03111f"/>
+  </linearGradient>
+  <linearGradient id="cold" x1="0" x2="1" y1="0" y2="1">
+    <stop stop-color="#17d7ff"/>
+    <stop offset="1" stop-color="#1b7cff"/>
+  </linearGradient>
+</defs>
+<rect width="900" height="1350" rx="34" fill="#f8f3e7"/>
+
+  <rect x="42" y="42" width="816" height="1266" rx="30" fill="#ffffff" stroke="#d7e0e7" stroke-width="5"/>
+  <rect x="42" y="42" width="816" height="178" rx="30" fill="#08243b"/>
+  <text x="108" y="112" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="900" fill="#ffd35f">MAPA 3</text>
+  <text x="450" y="141" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="900" fill="#ffffff">NO ENCIENDE</text>
+  <text x="450" y="184" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="800" fill="#bcefff">O se apaga solo</text>
+  <rect x="92" y="272" width="260" height="164" rx="22" fill="#eef7fb" stroke="#17d7ff" stroke-width="5"/>
+  <g transform="translate(190.5 297.75) scale(0.45)">
+    <rect x="0" y="0" width="140" height="250" rx="22" fill="#e9f7ff" stroke="#17d7ff" stroke-width="8"/>
+    <path d="M0 92h140" stroke="#17d7ff" stroke-width="8"/>
+    <path d="M106 38v34M106 126v76" stroke="#08243b" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="70" cy="176" r="34" fill="#17d7ff" opacity=".2"/>
+    <path d="M56 176h28M70 162v28" stroke="#17d7ff" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <rect x="408" y="272" width="360" height="164" rx="22" fill="#fff8eb" stroke="#ead0a8" stroke-width="5"/>
+  <path d="M456 332h242M456 382h178" stroke="#09243d" stroke-width="18" stroke-linecap="round"/>
+  
+    <rect x="112" y="525" width="676" height="92" rx="20" fill="#fff8eb" stroke="#ead0a8" stroke-width="3"/>
+    <circle cx="158" cy="571" r="25" fill="#ff8a1f"/>
+    <text x="158" y="580" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="900" fill="#ffffff">1</text>
+    <text x="210" y="582" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="#09243d">Tension</text>
+    <path d="M706 555l30 16-30 16" fill="none" stroke="#09243d" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  
+
+    <rect x="112" y="670" width="676" height="92" rx="20" fill="#eef7fb" stroke="#b9ddeb" stroke-width="3"/>
+    <circle cx="158" cy="716" r="25" fill="#17d7ff"/>
+    <text x="158" y="725" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="900" fill="#ffffff">2</text>
+    <text x="210" y="727" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="#09243d">Termostato</text>
+    <path d="M706 700l30 16-30 16" fill="none" stroke="#09243d" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  
+
+    <rect x="112" y="815" width="676" height="92" rx="20" fill="#fff8eb" stroke="#ead0a8" stroke-width="3"/>
+    <circle cx="158" cy="861" r="25" fill="#ff8a1f"/>
+    <text x="158" y="870" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="900" fill="#ffffff">3</text>
+    <text x="210" y="872" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="#09243d">Placa</text>
+    <path d="M706 845l30 16-30 16" fill="none" stroke="#09243d" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  
+
+    <rect x="112" y="960" width="676" height="92" rx="20" fill="#eef7fb" stroke="#b9ddeb" stroke-width="3"/>
+    <circle cx="158" cy="1006" r="25" fill="#17d7ff"/>
+    <text x="158" y="1015" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="900" fill="#ffffff">4</text>
+    <text x="210" y="1017" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="#09243d">Proteccion</text>
+    <path d="M706 990l30 16-30 16" fill="none" stroke="#09243d" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <rect x="104" y="1132" width="692" height="82" rx="22" fill="#08243b"/>
+  <text x="450" y="1183" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="900" fill="#ffffff">SINTOMA  &gt;  CAUSA  &gt;  PRUEBA  &gt;  PROXIMO PASO</text>
+  <rect x="248" y="1248" width="404" height="50" rx="25" fill="#12ad58"/>
+  <text x="450" y="1281" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="900" fill="#ffffff">50 MAPAS VISUALES</text>
+  
+</svg>
