@@ -18,20 +18,42 @@ const A = '/assets/'
 
 const CHECKOUT_CONFIG = {
   basico: {
-    url: '#checkout-basico',
+    url: 'https://checkout.lincelabs.online/c/t9nflah?offer=0s3o7puprg',
     productName: 'DERES 360º - Plano Básico',
     productId: 'plan_basico',
-    price: 9.90
+    price: 9.90,
+    currency: 'BRL'
   },
   completo: {
-    url: '#checkout-completo',
+    url: 'https://checkout.lincelabs.online/c/t9nflah',
     productName: 'DERES 360º - Plano Completo',
     productId: 'plan_completo',
-    price: 19.90
+    price: 19.90,
+    currency: 'BRL'
   }
 }
 
-function goToCheckout(event, checkoutKey) {
+function waitForAdTrack(timeoutMs = 2500) {
+  if (window.adtrack) return Promise.resolve(window.adtrack)
+
+  return new Promise((resolve) => {
+    let done = false
+    const timer = setTimeout(() => {
+      if (done) return
+      done = true
+      resolve(window.adtrack || null)
+    }, timeoutMs)
+
+    window.addEventListener('adtrack:ready', () => {
+      if (done) return
+      done = true
+      clearTimeout(timer)
+      resolve(window.adtrack || null)
+    }, { once: true })
+  })
+}
+
+async function goToCheckout(event, checkoutKey) {
   if (event && event.preventDefault) event.preventDefault()
 
   const config = CHECKOUT_CONFIG[checkoutKey]
@@ -40,32 +62,41 @@ function goToCheckout(event, checkoutKey) {
     return
   }
 
-  const CHECKOUT_URL = config.url
-  const PRODUCT_NAME = config.productName
-  const PRODUCT_ID = config.productId
-  const PRODUCT_PRICE = config.price
-
-  if (!window.adtrack) {
-    window.location.href = CHECKOUT_URL
+  const adtrack = await waitForAdTrack()
+  if (!adtrack) {
+    console.error('AdTrack não carregou. O checkout não foi aberto para evitar perda de atribuição.')
     return
   }
 
-  const decoratedUrl = window.adtrack.decorateCheckoutUrl(CHECKOUT_URL)
+  const checkoutData = {
+    product_name: config.productName,
+    product_id: config.productId
+  }
 
-  window.adtrack.trackInitiateCheckout(PRODUCT_PRICE, 'USD', 1, {
-    product_name: PRODUCT_NAME,
-    product_id: PRODUCT_ID
-  })
+  const decoratedUrl = adtrack.decorateCheckoutUrl(config.url)
 
-  setTimeout(function () {
-    window.location.href = decoratedUrl
-  }, 120)
+  try {
+    await adtrack.saveCheckoutClick(config.productName, config.productId, checkoutData)
+  } catch (error) {
+    console.warn('AdTrack checkout click falhou, redirecionando mesmo assim', error)
+  }
+
+  adtrack.trackInitiateCheckout(config.price, config.currency, 1, checkoutData)
+
+  window.location.href = decoratedUrl
 }
 
 function Cta({ children = 'QUERO ACESSAR AGORA', className = '', href = '#oferta', checkoutKey = null }) {
   if (checkoutKey) {
+    const config = CHECKOUT_CONFIG[checkoutKey]
     return (
-      <a href={href} className={`cta ${className}`} onClick={(e) => goToCheckout(e, checkoutKey)}>
+      <a
+        href={href}
+        className={`cta ${className}`}
+        data-product-name={config?.productName}
+        data-product-id={config?.productId}
+        onClick={(e) => goToCheckout(e, checkoutKey)}
+      >
         {children}
       </a>
     )
